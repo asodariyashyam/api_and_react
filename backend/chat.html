@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="styles.css">
+  
+<style>
+    /* Overall layout */
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 30%;
+  background-color: #2f3136;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.contact {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #3f4144;
+  cursor: pointer;
+}
+
+.contact:hover {
+  background-color: #4b4e52;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Chat window styling */
+.chat-window {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.message-container {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 60%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background-color: #4e8cff;
+  color: #fff;
+}
+
+.message.received {
+  align-self: flex-start;
+  background-color: #e4e6eb;
+  color: #000;
+}
+
+/* Message input styling */
+.input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f7f7f7;
+}
+
+.input-container input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  margin-right: 10px;
+  background-color: #e9ecef;
+}
+
+.input-container button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4e8cff;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #4177d5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .chat-window {
+    width: 100%;
+    height: 50vh;
+  }
+}
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar for contacts -->
+    <div class="sidebar">
+      <div class="contact">
+        <img src="avatar1.jpg" alt="User 1" class="avatar">
+        <span class="name">User 1</span>
+      </div>
+      <div class="contact">
+        <img src="avatar2.jpg" alt="User 2" class="avatar">
+        <span class="name">User 2</span>
+      </div>
+      <!-- Add more contacts as needed -->
+    </div>
+
+    <!-- Chat window -->
+    <div class="chat-window">
+      <!-- Message container -->
+      <div class="message-container">
+        <div class="message received">Hello, how are you?</div>
+        <div class="message sent">I'm good, thanks! How about you?</div>
+        <!-- Add more messages here -->
+      </div>
+
+      <!-- Message input field -->
+      <div class="input-container">
+        <input type="text" placeholder="Type a message..." />
+        <button>Send</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
