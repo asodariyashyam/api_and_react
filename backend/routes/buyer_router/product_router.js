@@ -14,4 +14,5 @@ routes.get('/buyer_product',verifyToken,buyer_productCtl.buyer_product)
 // ok
 routes.get("/removecart", verifyToken,buyer_productCtl.removecart)
 
+
 module.exports = routes;

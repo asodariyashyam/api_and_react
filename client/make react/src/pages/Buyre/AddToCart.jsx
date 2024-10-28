@@ -10,6 +10,7 @@ export default function AddToCart() {
   const [userCookieData, setUserCookieData] = useState("");
   const [productData, setProductData] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [showFullDescription, setShowFullDescription] = useState(false); 
   const navigate = useNavigate();
 
   function getCookieData() {
@@ -54,7 +55,15 @@ export default function AddToCart() {
             withCredentials: true,
           }
         );
-        alert(`Order confirm and Producr name ${productData.product_name} product price ${productData.price}  quantity ${quantity} `);
+        alert(
+          `Order confirm \n Producr name ${
+            productData.product_name
+          } \n product price ${
+            productData.price
+          } \n quantity ${quantity}  \n  total price ${
+            productData.price * quantity
+          } `
+        );
         navigate("/buyerproduct");
       } else {
         alert("Please sign in 👍");
@@ -90,21 +99,36 @@ export default function AddToCart() {
         </span>
       </p>
       <p className="text-lg font-medium mb-2">
-        Description:{" "}
-        <span className="text-gray-700">{productData.description}</span>
-      </p>
-      <p className="text-lg font-medium mb-2">
         Stock: <span className="font-semibold">{productData.stock}</span>
       </p>
       <p className="text-lg font-medium mb-2">
-        id: <span className="font-semibold">{productData.id}</span>
+        ID: <span className="font-semibold">{productData.id}</span>
       </p>
+
+      {/* Collapsible Product Description */}
+      <p className="text-lg font-medium mb-2">
+        Description:{" "}
+        <span className="text-gray-700">
+          {showFullDescription
+            ? productData.description
+            : `${productData.description.substring(0, 115)}...`} 
+        </span>
+        <button
+          className="text-blue-500 underline ml-2"
+          onClick={() => setShowFullDescription(!showFullDescription)}
+        >
+          {showFullDescription ? "Show Less" : "Show More"}
+        </button>
+      </p>
+
       <p className="text-xl font-medium mb-2 text-center">
         Total:{" "}
         <span className="font-semibold text-green-600">
           <b>${productData.price * quantity}</b>
         </span>
       </p>
+
+     
 
       <form onSubmit={handleSubmit} className="mt-4">
         <label
@@ -134,7 +158,7 @@ export default function AddToCart() {
             onClick={() => handleQuantityChange(1)}
             className="p-2 bg-green-700 text-white rounded hover:bg-green-600"
           >
-            <IoIosAdd className="text-2xl"/>
+            <IoIosAdd className="text-2xl" />
           </button>
         </div>
 

@@ -44,7 +44,6 @@ app.use(passport.session());
 const cookies= require("./utils/common")
 app.use(cookies.cookie);
 
-
 app.use('/',require('./routes/index'))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

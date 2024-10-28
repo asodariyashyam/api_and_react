@@ -12,7 +12,8 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 16;
+  const [expandedDescriptions, setExpandedDescriptions] = useState({});
+  const itemsPerPage = 15;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -89,6 +90,12 @@ export default function Home() {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+  const toggleDescription = (productId) => {
+    setExpandedDescriptions((prevState) => ({
+      ...prevState,
+      [productId]: !prevState[productId],
+    }));
+  };
 
   return (
     <div className="max-w-6xl mx-auto p-4">
@@ -114,7 +121,7 @@ export default function Home() {
             .filter((show) => show.stock !== 0)
             .map((show) => (
               <div key={show.id}>
-                <div className="relative border rounded-lg p-4 bg-slate-200 shadow hover:shadow-lg transition-shadow duration-300 border-black">
+                <div className="relative border rounded-lg p-4 bg-slate-200 shadow hover:scale-105 hover:bg-slate-300 hover:border-sky-400 transition-transform duration-300 border-black">
                   <h2 className="text-xl font-semibold mb-2">
                     Product Name: {show.product_name}
                   </h2>
@@ -125,9 +132,20 @@ export default function Home() {
                     Old Price: ${show.old_price}
                   </span>
                   <p className="mt-2">Stock: {show.stock}</p>
+
                   <p className="mt-1 text-gray-700">
-                    Description: {show.description}
+                    {expandedDescriptions[show.id]
+                      ? show.description
+                      : `${show.description.slice(0, 35)}...`} {"  "}
+                  <button
+                    onClick={() => toggleDescription(show.id)}
+                    className="text-blue-500 underline"
+                  >
+                    {expandedDescriptions[show.id] ? " Read Less" : "Read More"}
+
+                  </button>
                   </p>
+
                   <button
                     onClick={() => handleAddToCart(show.id)}
                     className="bg-blue-500 text-white font-bold py-2 px-4 mt-3 rounded hover:bg-blue-600 transition duration-200"
@@ -153,7 +171,9 @@ export default function Home() {
             ))}
         </div>
       ) : (
-        <p className="text-2xl text-slate-800">No products available {searchQuery}</p>
+        <p className="text-2xl text-slate-800">
+          No products available {searchQuery}
+        </p>
       )}
 
       {totalPages > 1 && (
@@ -199,6 +219,5 @@ export default function Home() {
         </div>
       )}
     </div>
-    
   );
 }

@@ -14,16 +14,17 @@ module.exports.signUp = async (req, res) => {
     let password = req.body.password;
     const confirm_password = req.body.confirm_password;
     const role = req.body.role;
+    const username = req.body.username;
 
     if (password === confirm_password) {
       password = await bcrypt.hash(password, 10);
 
-      const sql = "INSERT INTO user (email, password, role) VALUES (?, ?, ?)";
-      db.query(sql, [email, password, role], function (error, result) {
+      const sql = "INSERT INTO user (email, password, role ,username) VALUES (?, ?, ?, ?)";
+      db.query(sql, [email, password, role, username], function (error, result) {
         if (error) {
           return commonClass.reply(res, 500, true, "Error during signup");
         } else {
-          const data = { id: result.insertId, email: email, role: role };
+          const data = { id: result.insertId, email: email, role: role ,username:username};
           // return res.redirect('/api/signIn')
 
           return commonClass.reply(
@@ -76,7 +77,7 @@ module.exports.signin = async (req, res) => {
         return commonClass.reply(res, 401, true, "Invalid password");
       }
 
-      const cookieData = { email, role: user.role };
+      const cookieData = { username:user.username, email, role: user.role };
       res.cookie("cookieData", JSON.stringify(cookieData), { httpOnly: true });
 
 

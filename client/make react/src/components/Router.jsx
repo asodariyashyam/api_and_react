@@ -10,6 +10,7 @@ import BuyerProduct from "../pages/Buyre/BuyerProduct";
 import Details from "../pages/Details";
 import TotalBey from "../pages/TotalBey";
 import ProtectedRoute from "./ProtectedRoute";
+import NotFound from "../pages/NotFound";
 
 export default function Router() {
   return (
@@ -65,6 +66,8 @@ export default function Router() {
           </ProtectedRoute>
         }
       />
+
+      <Route path="*" element={<NotFound/>}/>
     </Routes>
   );
 }

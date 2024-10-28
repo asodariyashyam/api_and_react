@@ -81,7 +81,7 @@ export default function BuyerProduct() {
             {currentProducts.map((v, i) => (
               <div
                 key={i}
-                className="relative shadow-lg bg-slate-200 rounded-lg p-6 border border-black"
+                className="relative shadow-lg bg-slate-200 rounded-lg p-6 border border-black hover:scale-105 transition-transform hover:border-t-sky-400 hover:bg-slate-300"
               >
                 <h2 className="text-xl font-semibold text-gray-800 mb-2">
                   Product Name: {v.product_name}

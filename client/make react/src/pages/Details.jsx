@@ -118,7 +118,7 @@ export default function Details() {
             </thead>
             <tbody>
               {filteredAdminData.map((admin, index) => (
-                <tr key={index}>
+                <tr key={index} className="hover:bg-slate-300">
                   <td className="border border-neutral-950 p-2">{admin.id}</td>
                   <td className="border border-neutral-950 p-2">{admin.email}</td>
                   <td className="border border-neutral-950 p-2">{admin.role}</td>
@@ -153,7 +153,7 @@ export default function Details() {
             </thead>
             <tbody>
               {filteredSellerData.map((seller, index) => (
-                <tr key={index}>
+                <tr key={index} className="hover:bg-slate-300">
                   <td className="border border-neutral-950 p-2">{seller.id}</td>
                   <td className="border border-neutral-950 p-2">{seller.email}</td>
                   <td className="border border-neutral-950 p-2">{seller.role}</td>
@@ -179,7 +179,7 @@ export default function Details() {
         <div className="overflow-x-auto">
           <table className="table-auto w-full border border-gray-300 text-center">
             <thead>
-              <tr className="bg-slate-300">
+              <tr className="bg-slate-300 transition-transform">
                 <th className="border border-neutral-950 p-2">Buyer ID</th>
                 <th className="border border-neutral-950 p-2">Buyer Email</th>
                 <th className="border border-neutral-950 p-2">Buyer Role</th>
@@ -188,7 +188,8 @@ export default function Details() {
             </thead>
             <tbody>
               {filteredBuyerData.map((buyer, index) => (
-                <tr key={index}>
+                <tr key={index}  className="hover:bg-slate-300">
+
                   <td className="border border-neutral-950 p-2">{buyer.id}</td>
                   <td className="border border-neutral-950 p-2">{buyer.email}</td>
                   <td className="border border-neutral-950 p-2">{buyer.role}</td>

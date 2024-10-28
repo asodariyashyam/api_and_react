@@ -89,7 +89,9 @@ export default function TotalBey() {
       </div>
 
       {filteredProducts.length === 0 ? (
-        <p className="text-2xl text-slate-800 mx-80">No products available {searchQuery}</p>
+        <p className="text-2xl text-slate-800 mx-80">
+          No products available {searchQuery}
+        </p>
       ) : (
         <div className="overflow-x-auto">
           <table className="table-auto w-full border-collapse border border-gray-500">
@@ -111,13 +113,13 @@ export default function TotalBey() {
                   Total Price
                 </th>
                 <th className="border border-neutral-950 px-2 py-1 text-xs md:text-sm lg:px-4 lg:py-2 hidden md:table-cell">
-                  User ID
+                  Buyer ID
                 </th>
                 <th className="border border-neutral-950 px-2 py-1 text-xs md:text-sm lg:px-4 lg:py-2 hidden sm:table-cell">
-                  User Email
+                  Buyer Email
                 </th>
                 <th className="border border-neutral-950 px-2 py-1 text-xs md:text-sm lg:px-4 lg:py-2 hidden lg:table-cell">
-                  User Role
+                  Role
                 </th>
                 <th className="border border-neutral-950 px-2 py-1 text-xs md:text-sm lg:px-4 lg:py-2">
                   Remove
@@ -126,7 +128,10 @@ export default function TotalBey() {
             </thead>
             <tbody>
               {currentProducts.map((v, i) => (
-                <tr key={i} className="even:bg-slate-200">
+                <tr
+                  key={i}
+                  className="even:bg-slate-200 hover:bg-slate-300 transition-transform duration-300"
+                >
                   <td className="border border-neutral-950 px-2 py-1 text-xs md:text-sm lg:px-4 lg:py-2">
                     {no++}
                   </td>

@@ -73,7 +73,7 @@ export default function AddProduct() {
             value={formData.product_name}
             onChange={handleChange}
             required
-            className="border border-black rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border border-black rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-sky-400"
           />
 
           <input
@@ -83,7 +83,7 @@ export default function AddProduct() {
             value={formData.price}
             onChange={handleChange}
             required
-            className="border border-black rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border border-black rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-sky-400"
           />
 
           <input
@@ -92,7 +92,7 @@ export default function AddProduct() {
             id="old_price"
             value={formData.old_price}
             onChange={handleChange}
-            className="border border-black rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border border-black rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-sky-400"
           />
 
           <input
@@ -102,7 +102,7 @@ export default function AddProduct() {
             value={formData.stock}
             onChange={handleChange}
             required
-            className="border border-black rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border border-black rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-sky-400"
           />
 
           <textarea
@@ -112,12 +112,12 @@ export default function AddProduct() {
             value={formData.description}
             onChange={handleChange}
             required
-            className="border border-black rounded-3xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border border-black rounded-3xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-sky-400"
           ></textarea>
           <div className="flex justify-center">
             <button
               type="submit"
-              className="w-80  bg-blue-500 text-white p-3 rounded-xl hover:bg-blue-600 transition duration-200"
+              className="w-72  bg-blue-500 text-white p-3 rounded-xl hover:bg-blue-600 transition duration-200"
             >
               <IoIosAdd className="inline-block mr-2 text-3xl" /> Add Product
             </button>
@@ -144,7 +144,7 @@ export default function AddProduct() {
           Insert Product
         </Link>
       </div>
-        
+      
     </>
   );
 }
